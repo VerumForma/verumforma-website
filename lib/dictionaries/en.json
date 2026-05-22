@@ -23,5 +23,24 @@
     "clients_value": "200+",
     "experience_label": "Years of experience",
     "experience_value": "27 years"
+  },
+  "projects": {
+    "label": "Selected works",
+    "cta": "All projects",
+    "placeholder": "Featured project",
+    "coming_soon": "Portfolio coming soon"
+  },
+  "about": {
+    "label": "About VerumForma",
+    "headline": "Serious construction, for demanding clients.",
+    "body1": "From the first meeting to final delivery, we accompany every phase with rigour and transparency. We work with a limited project portfolio per year — because quality and attention to detail are not compatible with volume.",
+    "body2": "Our team brings decades of experience in commercial, residential and industrial construction across Portugal.",
+    "cta": "Meet the team",
+    "stat1_value": "250+",
+    "stat1_label": "Projects completed across Portugal, from luxury housing to civil infrastructure.",
+    "stat2_value": "27",
+    "stat2_label": "Years in the sector, with a reputation built project by project.",
+    "stat3_value": "99%",
+    "stat3_label": "Of projects delivered on time, with no surprises for the client."
   }
 }

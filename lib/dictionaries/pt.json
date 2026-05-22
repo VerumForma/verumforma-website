@@ -23,5 +23,24 @@
     "clients_value": "200+",
     "experience_label": "De experiência",
     "experience_value": "27 anos"
+  },
+  "projects": {
+    "label": "Trabalhos selecionados",
+    "cta": "Todos os projetos",
+    "placeholder": "Projeto em destaque",
+    "coming_soon": "Portefólio em breve"
+  },
+  "about": {
+    "label": "Sobre a VerumForma",
+    "headline": "Construção séria, para clientes exigentes.",
+    "body1": "Desde a primeira reunião até à entrega final, acompanhamos cada fase com rigor e transparência. Trabalhamos com uma carteira limitada de projetos por ano — porque qualidade e atenção ao detalhe não são compatíveis com volume.",
+    "body2": "A nossa equipa reúne décadas de experiência em construção comercial, residencial e industrial em Portugal.",
+    "cta": "Conhecer a equipa",
+    "stat1_value": "250+",
+    "stat1_label": "Obras concluídas em Portugal, desde habitação de luxo a infraestrutura civil.",
+    "stat2_value": "27",
+    "stat2_label": "Anos de presença no setor, com reputação construída projeto a projeto.",
+    "stat3_value": "99%",
+    "stat3_label": "Das obras entregues no prazo acordado, sem surpresas para o cliente."
   }
 }
