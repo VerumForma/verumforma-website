@@ -6,6 +6,10 @@ import Projects from '@/components/sections/Projects'
 import About from '@/components/sections/About'
 import Services from '@/components/sections/Services'
 import Process from '@/components/sections/Process'
+import Testimonial from '@/components/sections/Testimonial'
+import Team from '@/components/sections/Team'
+import Contact from '@/components/sections/Contact'
+import Footer from '@/components/layout/Footer'
 
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang)
@@ -17,6 +21,10 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       <About dict={dict} />
       <Services dict={dict} />
       <Process dict={dict} />
+      <Testimonial dict={dict} />
+      <Team dict={dict} />
+      <Contact dict={dict} />
+      <Footer dict={dict} />
     </>
   )
 }

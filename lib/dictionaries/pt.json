@@ -63,5 +63,41 @@
       { "number": "04", "title": "Execução & acompanhamento", "description": "Reuniões regulares com o cliente em todas as fases. Um único ponto de contacto dedicado à sua obra." },
       { "number": "05", "title": "Entrega & garantias", "description": "Entrega formal com o último pagamento. Acompanhamento pós-obra e cumprimento de todas as garantias legais." }
     ]
+  },
+  "testimonial": {
+    "label": "O que dizem de nós",
+    "quote": "Trabalhar com a VerumForma foi uma experiência excecional. Obra entregue a tempo, dentro do orçamento e com um nível de acabamento que superou as nossas expectativas.",
+    "author": "Ana Pereira",
+    "role": "Diretora de Operações · Grupo Atlântico"
+  },
+  "team": {
+    "label": "A nossa equipa",
+    "headline": "As pessoas por trás da obra.",
+    "subtext": "Uma equipa experiente, comprometida e com décadas de presença no setor da construção em Portugal.",
+    "coming_soon": "Perfis em breve"
+  },
+  "contact": {
+    "label": "Fale connosco",
+    "headline": "Vamos falar sobre o seu projeto.",
+    "subtext": "Aceitamos um número limitado de projetos por ano para garantir a atenção que cada cliente merece. Entre em contacto para iniciar a conversa.",
+    "email_budgets": "orcamentos@verumforma.pt",
+    "email_admin": "administracao@verumforma.pt",
+    "address": "Rua Agostinho Fortes, nº128",
+    "city": "2870-252 Montijo, Portugal",
+    "form_name": "Nome",
+    "form_email": "Email",
+    "form_type": "Tipo de projeto",
+    "form_message": "Mensagem",
+    "form_name_placeholder": "O seu nome",
+    "form_email_placeholder": "o.seu@email.com",
+    "form_message_placeholder": "Descreva o seu projeto...",
+    "form_select_placeholder": "Selecionar...",
+    "form_submit": "Enviar mensagem",
+    "form_success": "Mensagem enviada. Entraremos em contacto em breve.",
+    "form_types": ["Construção habitacional", "Construção comercial", "Construção industrial", "Reabilitação", "Investimento imobiliário", "Mediação imobiliária", "Design de interiores", "Outro"]
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "tagline": "O futuro constrói-se com verdade."
   }
 }

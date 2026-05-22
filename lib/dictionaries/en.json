@@ -63,5 +63,41 @@
       { "number": "04", "title": "Execution & follow-up", "description": "Regular meetings with the client at every phase. A single dedicated point of contact for your project." },
       { "number": "05", "title": "Delivery & guarantees", "description": "Formal handover with final payment. Post-completion follow-up and compliance with all legal guarantees." }
     ]
+  },
+  "testimonial": {
+    "label": "What they say about us",
+    "quote": "Working with VerumForma was an exceptional experience. The project was delivered on time, within budget and to a standard of finish that exceeded our expectations.",
+    "author": "Ana Pereira",
+    "role": "Operations Director · Grupo Atlântico"
+  },
+  "team": {
+    "label": "Our team",
+    "headline": "The people behind the work.",
+    "subtext": "An experienced, committed team with decades of presence in Portugal's construction sector.",
+    "coming_soon": "Profiles coming soon"
+  },
+  "contact": {
+    "label": "Get in touch",
+    "headline": "Let's talk about your project.",
+    "subtext": "We accept a limited number of projects per year to ensure every client gets the attention they deserve. Get in touch to start the conversation.",
+    "email_budgets": "orcamentos@verumforma.pt",
+    "email_admin": "administracao@verumforma.pt",
+    "address": "Rua Agostinho Fortes, nº128",
+    "city": "2870-252 Montijo, Portugal",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_type": "Project type",
+    "form_message": "Message",
+    "form_name_placeholder": "Your name",
+    "form_email_placeholder": "your@email.com",
+    "form_message_placeholder": "Describe your project...",
+    "form_select_placeholder": "Select...",
+    "form_submit": "Send message",
+    "form_success": "Message sent. We will be in touch shortly.",
+    "form_types": ["Residential construction", "Commercial construction", "Industrial construction", "Renovation", "Real estate investment", "Real estate agency", "Interior design", "Other"]
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "The future is built with truth."
   }
 }
