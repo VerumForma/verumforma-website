@@ -6,7 +6,6 @@ import type { Dictionary } from '@/lib/getDictionary'
 
 type Props = {
   dict: Dictionary
-  lang: string
 }
 
 const fadeUp = (delay = 0) => ({
@@ -15,7 +14,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as Easing },
 })
 
-export default function Hero({ dict, lang }: Props) {
+export default function Hero({ dict }: Props) {
   const h = dict.hero
   const s = dict.stats
 

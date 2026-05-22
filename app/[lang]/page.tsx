@@ -8,7 +8,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
   return (
     <>
       <Navbar dict={dict} lang={params.lang} />
-      <Hero dict={dict} lang={params.lang} />
+      <Hero dict={dict} />
     </>
   )
 }
