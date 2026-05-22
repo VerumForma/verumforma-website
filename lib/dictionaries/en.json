@@ -42,5 +42,26 @@
     "stat2_label": "Years in the sector, with a reputation built project by project.",
     "stat3_value": "99%",
     "stat3_label": "Of projects delivered on time, with no surprises for the client."
+  },
+  "services": {
+    "label": "What we do",
+    "items": [
+      { "number": "01", "title": "Residential construction", "description": "Houses and apartments conceived in close collaboration with the client and their architecture team." },
+      { "number": "02", "title": "Commercial and industrial construction", "description": "Commercial buildings, warehouses and industrial infrastructure with technical rigour and deadline compliance." },
+      { "number": "03", "title": "Renovation and finishing", "description": "Interior and structural interventions in operating buildings, minimising operational impact." },
+      { "number": "04", "title": "Real estate investment", "description": "Identification and development of real estate opportunities with solid returns and in-house execution." },
+      { "number": "05", "title": "Real estate agency", "description": "Our own agents for buying, selling and renting — with technical knowledge most agencies lack." },
+      { "number": "06", "title": "Interior design consultancy", "description": "Specialist support in defining finishes, materials and interior solutions for your project." }
+    ]
+  },
+  "process": {
+    "label": "How we work",
+    "steps": [
+      { "number": "01", "title": "Contact & quote", "description": "We receive your request and assess the project. Whenever possible, we meet on site." },
+      { "number": "02", "title": "Proposal & negotiation", "description": "We produce a detailed, transparent quote. We negotiate until we reach a fair agreement for both parties." },
+      { "number": "03", "title": "Contract & start", "description": "We sign a contract with all conditions defined. Work begins on the agreed date, with no surprises." },
+      { "number": "04", "title": "Execution & follow-up", "description": "Regular meetings with the client at every phase. A single dedicated point of contact for your project." },
+      { "number": "05", "title": "Delivery & guarantees", "description": "Formal handover with final payment. Post-completion follow-up and compliance with all legal guarantees." }
+    ]
   }
 }

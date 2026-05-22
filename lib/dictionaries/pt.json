@@ -42,5 +42,26 @@
     "stat2_label": "Anos de presença no setor, com reputação construída projeto a projeto.",
     "stat3_value": "99%",
     "stat3_label": "Das obras entregues no prazo acordado, sem surpresas para o cliente."
+  },
+  "services": {
+    "label": "O que fazemos",
+    "items": [
+      { "number": "01", "title": "Construção habitacional", "description": "Moradias e apartamentos concebidos em estreita colaboração com o cliente e a sua equipa de arquitetura." },
+      { "number": "02", "title": "Construção comercial e industrial", "description": "Edifícios comerciais, armazéns e infraestruturas industriais com rigor técnico e cumprimento de prazos." },
+      { "number": "03", "title": "Reabilitação e acabamentos", "description": "Intervenções interiores e estruturais em edifícios em funcionamento, minimizando o impacto operacional." },
+      { "number": "04", "title": "Investimento imobiliário", "description": "Identificação e desenvolvimento de oportunidades imobiliárias com retorno sólido e execução própria." },
+      { "number": "05", "title": "Mediação imobiliária", "description": "Agentes próprios para compra, venda e arrendamento — com conhecimento técnico que a maioria não tem." },
+      { "number": "06", "title": "Consultoria de design de interiores", "description": "Apoio especializado na definição de acabamentos, materiais e soluções de interiores para o seu projeto." }
+    ]
+  },
+  "process": {
+    "label": "Como trabalhamos",
+    "steps": [
+      { "number": "01", "title": "Contacto & orçamento", "description": "Recebemos o seu pedido e avaliamos o projeto. Sempre que possível, reunimos no local de intervenção." },
+      { "number": "02", "title": "Proposta & negociação", "description": "Elaboramos um orçamento detalhado e transparente. Negociamos até chegarmos a um acordo justo para ambas as partes." },
+      { "number": "03", "title": "Contrato & arranque", "description": "Assinamos contrato com todas as condições definidas. A obra arranca na data acordada, sem surpresas." },
+      { "number": "04", "title": "Execução & acompanhamento", "description": "Reuniões regulares com o cliente em todas as fases. Um único ponto de contacto dedicado à sua obra." },
+      { "number": "05", "title": "Entrega & garantias", "description": "Entrega formal com o último pagamento. Acompanhamento pós-obra e cumprimento de todas as garantias legais." }
+    ]
   }
 }
