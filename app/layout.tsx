@@ -1,35 +1,7 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { ReactNode } from 'react'
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-export const metadata: Metadata = {
-  title: 'VerumForma | Construção com Verdade',
-  description: 'O futuro constrói-se com verdade. Construção habitacional, comercial e industrial em Portugal desde 1998.',
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="pt">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+// Root layout is a passthrough. The [lang] nested layout renders
+// <html> and <body> so Next.js can set lang per locale.
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return children
 }

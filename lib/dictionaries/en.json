@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About us",
+    "process": "Process",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Construction & Project Management",
+    "headline": "The future is built with truth.",
+    "subtext": "VerumForma delivers superior quality construction for clients who value what lasts — from the first site visit to the final inspection.",
+    "cta_primary": "View projects",
+    "cta_secondary": "Request a quote"
+  },
+  "stats": {
+    "founded_label": "Year founded",
+    "founded_value": "Since 1998",
+    "projects_label": "Completed projects",
+    "projects_value": "250+",
+    "clients_label": "Satisfied clients",
+    "clients_value": "200+",
+    "experience_label": "Years of experience",
+    "experience_value": "27 years"
+  }
+}

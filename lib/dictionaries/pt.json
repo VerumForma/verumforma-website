@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "projects": "Projetos",
+    "services": "Serviços",
+    "about": "Sobre nós",
+    "process": "Processo",
+    "team": "Equipa",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Construção & Gestão de Obra",
+    "headline": "O futuro constrói-se com verdade.",
+    "subtext": "A VerumForma entrega obras de qualidade superior para clientes que valorizam o que fica — da primeira visita ao terreno até à última inspeção.",
+    "cta_primary": "Ver projetos",
+    "cta_secondary": "Pedir orçamento"
+  },
+  "stats": {
+    "founded_label": "Ano de fundação",
+    "founded_value": "Desde 1998",
+    "projects_label": "Obras concluídas",
+    "projects_value": "250+",
+    "clients_label": "Clientes satisfeitos",
+    "clients_value": "200+",
+    "experience_label": "De experiência",
+    "experience_value": "27 anos"
+  }
+}
