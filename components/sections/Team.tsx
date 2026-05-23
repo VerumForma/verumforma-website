@@ -30,7 +30,7 @@ export default function Team({ dict }: Props) {
           {[0, 1, 2, 3].map(i => (
             <motion.div key={i} {...fadeUp(i)} className="flex flex-col gap-3">
               <div
-                className="w-full aspect-square"
+                className="w-full aspect-[3/4]"
                 style={{ backgroundColor: '#2A2A2A' }}
               />
               <p className="font-playfair text-base text-[#1A1A1A]">—</p>

@@ -68,7 +68,7 @@ export default function Contact({ dict }: Props) {
           <h2 className="font-playfair text-4xl md:text-5xl text-white leading-[1.1]">{c.headline}</h2>
           <p className="font-sans text-base text-[#9E9994] leading-relaxed max-w-sm">{c.subtext}</p>
 
-          <div className="flex flex-col gap-4 pt-4 border-t border-[rgba(255,255,255,0.08)]">
+          <div className="flex flex-col gap-6 pt-6 border-t border-[rgba(255,255,255,0.08)]">
             <a href={`mailto:${c.email_budgets}`} className="flex items-center gap-3 text-sm font-sans text-[#9E9994] hover:text-white transition-colors">
               <Mail size={16} className="text-[#6B6560] flex-shrink-0" />
               {c.email_budgets}

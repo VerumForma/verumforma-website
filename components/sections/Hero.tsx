@@ -27,10 +27,10 @@ export default function Hero({ dict }: Props) {
 
   return (
     <section
-      className="min-h-screen flex flex-col justify-between pt-32 pb-0 px-6 md:px-12"
+      className="min-h-screen flex flex-col pt-32 pb-0 px-6 md:px-12"
       style={{ backgroundColor: 'var(--bg)' }}
     >
-      <div className="max-w-7xl mx-auto w-full flex flex-col gap-8">
+      <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center gap-8">
         {/* Badge */}
         <motion.div {...fadeUp(0.1)}>
           <span
