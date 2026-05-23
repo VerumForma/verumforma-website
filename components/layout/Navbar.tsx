@@ -47,13 +47,17 @@ export default function Navbar({ dict, lang }: Props) {
       <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         {/* Logotype */}
         <Link href={`/${lang}`} className="flex items-center">
-          <Image
-            src="/logos/verumforma-black-transparent.svg"
-            alt="VerumForma"
-            width={140}
-            height={40}
-            priority
-          />
+          <div className="flex items-center gap-2">
+            <Image
+              src="/logos/verumforma-mark-color.png"
+              alt="VerumForma"
+              width={32}
+              height={32}
+              priority
+              className="object-contain"
+            />
+            <span className="font-playfair font-medium text-[#1A1A1A]">VerumForma</span>
+          </div>
         </Link>
 
         {/* Desktop links */}
