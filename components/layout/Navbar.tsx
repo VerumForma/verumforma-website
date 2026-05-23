@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
@@ -45,8 +46,14 @@ export default function Navbar({ dict, lang }: Props) {
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         {/* Logotype */}
-        <Link href={`/${lang}`} className="font-playfair text-xl font-medium tracking-wide text-[#1A1A1A]">
-          VerumForma
+        <Link href={`/${lang}`} className="flex items-center">
+          <Image
+            src="/logos/verumforma-black-transparent.svg"
+            alt="VerumForma"
+            width={140}
+            height={40}
+            priority
+          />
         </Link>
 
         {/* Desktop links */}

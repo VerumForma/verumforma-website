@@ -17,11 +17,39 @@ const inputClass = `
 export default function Contact({ dict }: Props) {
   const c = dict.contact
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', type: '', message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+    const locale = typeof window !== 'undefined'
+      ? window.location.pathname.split('/')[1] ?? 'pt'
+      : 'pt'
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          projectType: form.type,
+          message: form.message,
+          locale,
+        }),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setError(c.form_error)
+      }
+    } catch {
+      setError(c.form_error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -121,11 +149,15 @@ export default function Contact({ dict }: Props) {
               </div>
               <button
                 type="submit"
-                className="w-full bg-white text-[#1A1A1A] font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-[#F5F2EE] transition-colors duration-200 mt-2"
+                disabled={loading}
+                className="w-full bg-white text-[#1A1A1A] font-sans text-sm tracking-[0.1em] uppercase py-4 hover:bg-[#F5F2EE] transition-colors duration-200 disabled:opacity-50 mt-2"
                 style={{ borderRadius: '2px' }}
               >
-                {c.form_submit}
+                {loading ? c.form_loading : c.form_submit}
               </button>
+              {error && (
+                <p className="font-sans text-xs text-red-400 mt-2">{error}</p>
+              )}
             </form>
           )}
         </motion.div>

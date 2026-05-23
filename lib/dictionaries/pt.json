@@ -94,6 +94,8 @@
     "form_select_placeholder": "Selecionar...",
     "form_submit": "Enviar mensagem",
     "form_success": "Mensagem enviada. Entraremos em contacto em breve.",
+    "form_loading": "A enviar...",
+    "form_error": "Ocorreu um erro ao enviar a mensagem. Por favor tente novamente ou contacte-nos diretamente por email.",
     "form_types": ["Construção habitacional", "Construção comercial", "Construção industrial", "Reabilitação", "Investimento imobiliário", "Mediação imobiliária", "Design de interiores", "Outro"]
   },
   "footer": {

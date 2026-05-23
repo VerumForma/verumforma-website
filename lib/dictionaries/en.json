@@ -94,6 +94,8 @@
     "form_select_placeholder": "Select...",
     "form_submit": "Send message",
     "form_success": "Message sent. We will be in touch shortly.",
+    "form_loading": "Sending...",
+    "form_error": "An error occurred while sending your message. Please try again or contact us directly by email.",
     "form_types": ["Residential construction", "Commercial construction", "Industrial construction", "Renovation", "Real estate investment", "Real estate agency", "Interior design", "Other"]
   },
   "footer": {
