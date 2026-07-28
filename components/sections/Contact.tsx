@@ -19,7 +19,7 @@ export default function Contact({ dict }: Props) {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [form, setForm] = useState({ name: '', email: '', type: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', type: '', message: '', company: '' })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -37,6 +37,7 @@ export default function Contact({ dict }: Props) {
           email: form.email,
           projectType: form.type,
           message: form.message,
+          company: form.company,
           locale,
         }),
       })
@@ -100,6 +101,17 @@ export default function Contact({ dict }: Props) {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {/* Honeypot — hidden from humans, catches bots. Do not remove. */}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={form.company}
+                onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
+                style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+              />
               <div>
                 <label className="block text-xs tracking-[0.12em] uppercase font-sans text-[#6B6560] mb-2">{c.form_name}</label>
                 <input

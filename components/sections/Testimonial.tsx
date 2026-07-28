@@ -2,11 +2,16 @@
 
 import { motion } from 'framer-motion'
 import type { Dictionary } from '@/lib/getDictionary'
+import type { Testimonial as TestimonialRow } from '@/lib/supabase/types'
 
-type Props = { dict: Dictionary }
+type Props = { dict: Dictionary; testimonials?: TestimonialRow[] }
 
-export default function Testimonial({ dict }: Props) {
+export default function Testimonial({ dict, testimonials }: Props) {
   const t = dict.testimonial
+  const featured = testimonials && testimonials.length > 0 ? testimonials[0] : null
+  const quote = featured ? featured.quote : t.quote
+  const author = featured ? featured.author_name : t.author
+  const role = featured ? (featured.author_role ?? featured.project ?? '') : t.role
 
   return (
     <section className="py-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
@@ -25,14 +30,14 @@ export default function Testimonial({ dict }: Props) {
 
           {/* Quote */}
           <blockquote className="font-playfair text-2xl md:text-3xl lg:text-4xl italic text-[#1A1A1A] leading-[1.3] mb-12">
-            {t.quote}
+            {quote}
           </blockquote>
 
           {/* Attribution */}
           <div className="flex flex-col items-center gap-3">
             <div className="w-12 h-px bg-[rgba(26,26,26,0.2)]" />
-            <p className="font-sans text-sm font-medium text-[#1A1A1A]">{t.author}</p>
-            <p className="font-sans text-xs text-[#6B6560] tracking-wide">{t.role}</p>
+            <p className="font-sans text-sm font-medium text-[#1A1A1A]">{author}</p>
+            {role && <p className="font-sans text-xs text-[#6B6560] tracking-wide">{role}</p>}
           </div>
         </motion.div>
       </div>

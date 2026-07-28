@@ -1,4 +1,6 @@
 import { getDictionary } from '@/lib/getDictionary'
+import { mergeDictionaryWithContent } from '@/lib/content'
+import { getPublishedProjects, getPublishedTeam, getPublishedTestimonials } from '@/lib/data'
 import type { Locale } from '@/middleware'
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
@@ -12,17 +14,23 @@ import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
-  const dict = await getDictionary(params.lang)
+  const [rawDict, projects, team, testimonials] = await Promise.all([
+    getDictionary(params.lang),
+    getPublishedProjects(),
+    getPublishedTeam(),
+    getPublishedTestimonials(),
+  ])
+  const dict = await mergeDictionaryWithContent(rawDict, params.lang)
   return (
     <>
       <Navbar dict={dict} lang={params.lang} />
       <Hero dict={dict} />
-      <Projects dict={dict} />
+      <Projects dict={dict} lang={params.lang} projects={projects} />
       <About dict={dict} />
       <Services dict={dict} />
       <Process dict={dict} />
-      <Testimonial dict={dict} />
-      <Team dict={dict} />
+      <Testimonial dict={dict} testimonials={testimonials} />
+      <Team dict={dict} team={team} />
       <Contact dict={dict} />
       <Footer dict={dict} />
     </>

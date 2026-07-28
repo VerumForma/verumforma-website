@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { createClient, supabaseConfigured } from '@/lib/supabase/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? 'orcamentos@verumforma.pt'
@@ -16,13 +17,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { name, email, projectType, message, locale } = body
+  const { name, email, projectType, message, locale, company } = body
+
+  // Honeypot: real users never fill the hidden "company" field. Bots do.
+  // Silently accept and drop so the bot thinks it succeeded.
+  if (company && company.trim()) {
+    return NextResponse.json({ success: true })
+  }
 
   if (!name?.trim() || !email?.trim() || !projectType?.trim() || !message?.trim()) {
     return NextResponse.json({ error: 'All fields are required.' }, { status: 400 })
   }
   if (!isValidEmail(email)) {
     return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 })
+  }
+
+  // Persist the lead (best-effort — never block the email path on this).
+  if (supabaseConfigured()) {
+    try {
+      const supabase = createClient()
+      await supabase.from('contact_submissions').insert({
+        name,
+        email,
+        project_type: projectType,
+        message,
+        locale: locale === 'en' ? 'en' : 'pt',
+      })
+    } catch (err) {
+      console.error('contact_submissions insert failed:', err)
+    }
   }
 
   const lang = locale === 'en' ? 'en' : 'pt'

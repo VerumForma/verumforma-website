@@ -1,0 +1,11 @@
+Dispatch 82 complete.
+
+Commit d1976ae pushed to origin/main.
+
+Files replaced with JFF monogram PNG:
+- app/favicon.ico
+- app/icon.png (new)
+- app/apple-icon.png (new)
+
+Next step: Check Vercel dashboard to confirm build triggered for commit d1976ae.
+If the monogram appears at os.braosatales.com, the deployment pipeline is confirmed working.
