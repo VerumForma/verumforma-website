@@ -91,7 +91,7 @@ export default function Navbar({ dict, lang }: Props) {
           </div>
           {/* Contact CTA */}
           <a
-            href="#contacto"
+            href={`/${lang}#orcamento`}
             className="text-xs tracking-[0.12em] uppercase font-sans bg-[#1A1A1A] text-[#F5F2EE] px-5 py-2 hover:bg-[#333] transition-colors"
             style={{ borderRadius: '2px' }}
           >
