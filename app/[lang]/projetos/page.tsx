@@ -14,7 +14,7 @@ export default async function AllProjectsPage({ params }: { params: { lang: Loca
     <>
       <Navbar dict={dict} lang={params.lang} />
       <ProjectsExplorer dict={dict} lang={params.lang} projects={projects} />
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={params.lang} />
     </>
   )
 }

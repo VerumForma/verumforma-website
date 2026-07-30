@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({ params }: Params) {
           )}
         </div>
       </article>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={params.lang} />
     </>
   )
 }

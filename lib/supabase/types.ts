@@ -1,3 +1,4 @@
+import type { RequirementSpecs } from '../requirements'
 // Database row types for the VerumForma Supabase schema.
 
 export type Project = {
@@ -58,6 +59,54 @@ export type Category = {
   created_at: string
 }
 
+export type Opening = {
+  id: string
+  title: string
+  location: string | null
+  department: string | null
+  employment_type: string | null
+  work_mode: string | null
+  description: string | null
+  requirements: string[]
+  requirement_specs: RequirementSpecs
+  deadline: string | null
+  apply_email: string | null
+  salary_min: number | null
+  salary_max: number | null
+  salary_currency: string | null
+  salary_period: string | null
+  sort_order: number
+  published: boolean
+  created_at: string
+  updated_at: string
+}
+
+export type JobApplication = {
+  id: string
+  opening_id: string | null
+  opening_title: string | null
+  name: string
+  email: string
+  phone: string | null
+  message: string | null
+  cv_url: string | null
+  locale: string | null
+  status: 'new' | 'read' | 'handled' | 'archived'
+  created_at: string
+}
+
+export type SocialMedia = {
+  id: string
+  platform: 'instagram' | 'youtube'
+  aspect_ratio: string | null
+  title: string | null
+  thumbnail_url: string | null
+  link: string | null
+  sort_order: number
+  published: boolean
+  created_at: string
+}
+
 export type SiteContent = {
   id: string
   section: string
@@ -88,6 +137,9 @@ export type Database = {
       profiles: { Row: Profile; Insert: Partial<Profile>; Update: Partial<Profile>; Relationships: [] }
       categories: { Row: Category; Insert: Partial<Category>; Update: Partial<Category>; Relationships: [] }
       site_content: { Row: SiteContent; Insert: Partial<SiteContent>; Update: Partial<SiteContent>; Relationships: [] }
+      openings: { Row: Opening; Insert: Partial<Opening>; Update: Partial<Opening>; Relationships: [] }
+      job_applications: { Row: JobApplication; Insert: Partial<JobApplication>; Update: Partial<JobApplication>; Relationships: [] }
+      social_media: { Row: SocialMedia; Insert: Partial<SocialMedia>; Update: Partial<SocialMedia>; Relationships: [] }
     }
     Views: Record<string, never>
     Functions: Record<string, never>

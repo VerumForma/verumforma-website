@@ -11,6 +11,9 @@ const nav = [
   { href: '/admin/content', label: 'Conteúdo' },
   { href: '/admin/team', label: 'Equipa' },
   { href: '/admin/testimonials', label: 'Testemunhos' },
+  { href: '/admin/openings', label: 'Oportunidades' },
+  { href: '/admin/applications', label: 'Candidaturas' },
+  { href: '/admin/social', label: 'Redes sociais' },
   { href: '/admin/submissions', label: 'Contactos' },
 ]
 

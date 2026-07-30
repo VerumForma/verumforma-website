@@ -39,7 +39,7 @@ export default async function PrivacidadePage({ params }: { params: { lang: Loca
           </div>
         </div>
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={params.lang} />
     </>
   )
 }

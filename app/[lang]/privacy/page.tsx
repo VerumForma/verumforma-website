@@ -39,7 +39,7 @@ export default async function PrivacyPage({ params }: { params: { lang: Locale }
           </div>
         </div>
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={params.lang} />
     </>
   )
 }

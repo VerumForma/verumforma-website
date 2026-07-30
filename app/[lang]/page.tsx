@@ -1,6 +1,6 @@
 import { getDictionary } from '@/lib/getDictionary'
 import { mergeDictionaryWithContent } from '@/lib/content'
-import { getPublishedProjects, getPublishedTeam, getPublishedTestimonials } from '@/lib/data'
+import { getPublishedProjects, getPublishedTeam, getPublishedTestimonials, getPublishedOpenings, getPublishedSocial } from '@/lib/data'
 import type { Locale } from '@/middleware'
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/sections/Hero'
@@ -10,15 +10,19 @@ import Services from '@/components/sections/Services'
 import Process from '@/components/sections/Process'
 import Testimonial from '@/components/sections/Testimonial'
 import Team from '@/components/sections/Team'
+import Openings from '@/components/sections/Openings'
+import SocialCarousel from '@/components/sections/SocialCarousel'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 
 export default async function HomePage({ params }: { params: { lang: Locale } }) {
-  const [rawDict, projects, team, testimonials] = await Promise.all([
+  const [rawDict, projects, team, testimonials, openings, social] = await Promise.all([
     getDictionary(params.lang),
     getPublishedProjects(),
     getPublishedTeam(),
     getPublishedTestimonials(),
+    getPublishedOpenings(),
+    getPublishedSocial(),
   ])
   const dict = await mergeDictionaryWithContent(rawDict, params.lang)
   return (
@@ -31,8 +35,10 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
       <Process dict={dict} />
       <Testimonial dict={dict} testimonials={testimonials} />
       <Team dict={dict} team={team} />
+      <Openings dict={dict} lang={params.lang} openings={openings} />
+      <SocialCarousel dict={dict} items={social} />
       <Contact dict={dict} />
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={params.lang} />
     </>
   )
 }

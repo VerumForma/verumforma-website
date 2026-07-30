@@ -14,10 +14,11 @@ type Props = {
 
 const navLinks = (dict: Dictionary['nav'], lang: string) => [
   { href: `/${lang}#projetos`, label: dict.projects },
-  { href: `/${lang}#servicos`, label: dict.services },
   { href: `/${lang}#sobre`, label: dict.about },
+  { href: `/${lang}#servicos`, label: dict.services },
   { href: `/${lang}#processo`, label: dict.process },
   { href: `/${lang}#equipa`, label: dict.team },
+  { href: `/${lang}/oportunidades`, label: dict.opportunities },
 ]
 
 export default function Navbar({ dict, lang }: Props) {
