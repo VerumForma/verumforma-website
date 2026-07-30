@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { CONTENT_SCHEMA } from '@/lib/contentSchema'
 import type { SiteContent } from '@/lib/supabase/types'
+import ImageUpload from './ImageUpload'
 import ptDict from '@/lib/dictionaries/pt.json'
 import enDict from '@/lib/dictionaries/en.json'
 
@@ -118,6 +119,16 @@ export default function ContentManager({ initial }: { initial: SiteContent[] }) 
       case 'hero':
         return (
           <div className="p-8 md:p-12" style={{ backgroundColor: 'var(--bg)' }}>
+            <div className="mb-8 pb-6 border-b border-dashed border-[rgba(26,26,26,0.25)]">
+              <p className="text-[11px] uppercase tracking-wider text-[#6B6560] mb-2">Imagem de fundo (opcional)</p>
+              <div className="max-w-md">
+                <ImageUpload value={v('bg_image') || null} folder="hero" aspect="aspect-video" onChange={url => set('bg_image', url || '')} />
+              </div>
+              <div className="mt-4 max-w-xs">
+                <label className="block text-[11px] uppercase tracking-wider text-[#6B6560] mb-1">Filtro claro por cima: {v('bg_overlay') || '62'}%</label>
+                <input type="range" min={0} max={100} value={Number(v('bg_overlay') || 62)} onChange={e => set('bg_overlay', e.target.value)} className="w-full accent-[#1A1A1A]" />
+              </div>
+            </div>
             <div className="flex flex-col gap-7 max-w-3xl">
               <div className="max-w-xs"><Box n={N()} value={v('badge')} onChange={x => set('badge', x)} cls="text-xs tracking-[0.18em] uppercase text-[#6B6560]" /></div>
               <Box n={N()} area value={v('headline')} onChange={x => set('headline', x)} cls="font-playfair text-4xl md:text-5xl text-[#1A1A1A] leading-[1.05]" />

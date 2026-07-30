@@ -36,7 +36,7 @@ export default function Projects({ dict, lang, projects }: Props) {
     ? projects!.slice(0, 3).map(pr => ({
         id: pr.id,
         title: pr.title,
-        meta: metaLine([pr.category, pr.location, pr.year]),
+        meta: metaLine([(pr.categories && pr.categories.length ? pr.categories.join(', ') : pr.category), pr.location, pr.year]),
         image: pr.cover_image,
       }))
     : placeholderProjects.map(pr => ({

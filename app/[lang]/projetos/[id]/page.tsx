@@ -40,7 +40,7 @@ export default async function ProjectDetailPage({ params }: Params) {
           </Link>
 
           <p className="font-sans text-xs text-[#6B6560] tracking-wide mb-3">
-            {[project.category, project.location, project.year].filter(Boolean).join(' · ')}
+            {[(project.categories && project.categories.length ? project.categories.join(', ') : project.category), project.location, project.year].filter(Boolean).join(' · ')}
           </p>
           <h1 className="font-playfair text-4xl md:text-5xl text-[#1A1A1A] mb-10 leading-tight">{project.title}</h1>
 

@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/client'
 import type { Project, Category } from '@/lib/supabase/types'
 import ImageUpload from './ImageUpload'
 import GalleryUpload from './GalleryUpload'
-import CategorySelect from './CategorySelect'
 
 const input =
   'w-full bg-white text-sm px-3 py-2 border border-[rgba(26,26,26,0.15)] outline-none focus:border-[#1A1A1A] transition-colors'
@@ -16,6 +15,7 @@ type Draft = Partial<Project>
 const empty: Draft = {
   title: '',
   category: '',
+  categories: [],
   location: '',
   year: '',
   description: '',
@@ -51,7 +51,8 @@ export default function ProjectsManager({ initial, categories }: { initial: Proj
     setError('')
     const payload = {
       title: draft.title,
-      category: draft.category || null,
+      category: (draft.categories && draft.categories[0]) || draft.category || null,
+      categories: draft.categories ?? [],
       location: draft.location || null,
       year: draft.year || null,
       description: draft.description || null,
@@ -107,13 +108,27 @@ export default function ProjectsManager({ initial, categories }: { initial: Proj
               <label className={label}>Título *</label>
               <input className={input} value={draft.title ?? ''} onChange={e => setDraft({ ...draft, title: e.target.value })} />
             </div>
-            <div>
-              <label className={label}>Categoria</label>
-              <CategorySelect
-                value={draft.category ?? null}
-                categories={categories}
-                onChange={name => setDraft({ ...draft, category: name })}
-              />
+            <div className="md:col-span-2">
+              <label className={label}>Categorias</label>
+              {categories.length === 0 ? (
+                <p className="text-xs text-[#6B6560]">Sem categorias. Crie em “Categorias”.</p>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {categories.map(c => {
+                    const on = (draft.categories ?? []).includes(c.name)
+                    return (
+                      <button
+                        key={c.id}
+                        type="button"
+                        onClick={() => setDraft({ ...draft, categories: on ? (draft.categories ?? []).filter(x => x !== c.name) : [ ...(draft.categories ?? []), c.name ] })}
+                        className={`text-xs px-3 py-1.5 border transition-colors ${on ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]' : 'border-[rgba(26,26,26,0.15)] text-[#6B6560] hover:border-[#1A1A1A]'}`}
+                      >
+                        {on ? c.name : `+ ${c.name}`}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
             </div>
             <div>
               <label className={label}>Localização</label>
@@ -173,7 +188,7 @@ export default function ProjectsManager({ initial, categories }: { initial: Proj
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate">{row.title}</p>
               <p className="text-xs text-[#6B6560] truncate">
-                {[row.category, row.location, row.year].filter(Boolean).join(' · ')}
+                {[(row.categories && row.categories.length ? row.categories.join(', ') : row.category), row.location, row.year].filter(Boolean).join(' · ')}
               </p>
             </div>
             <button onClick={() => togglePublish(row)} className={`text-[10px] uppercase tracking-wider px-2 py-1 ${row.published ? 'bg-green-100 text-green-800' : 'bg-[rgba(26,26,26,0.06)] text-[#6B6560]'}`}>

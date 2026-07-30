@@ -13,7 +13,9 @@
     "headline": "The future is built with truth.",
     "subtext": "VerumForma delivers superior quality construction for clients who value what lasts — from the first site visit to the final inspection.",
     "cta_primary": "View projects",
-    "cta_secondary": "Request a quote"
+    "cta_secondary": "Request a quote",
+    "bg_image": "/images/hero-bg.jpg",
+    "bg_overlay": "62"
   },
   "stats": {
     "founded_label": "Year founded",

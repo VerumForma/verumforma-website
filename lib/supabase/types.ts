@@ -5,6 +5,7 @@ export type Project = {
   id: string
   title: string
   category: string | null
+  categories: string[]
   location: string | null
   year: string | null
   description: string | null

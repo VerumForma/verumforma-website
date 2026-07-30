@@ -17,6 +17,8 @@ const fadeUp = (delay = 0) => ({
 export default function Hero({ dict }: Props) {
   const h = dict.hero
   const s = dict.stats
+  const overlay = Math.min(Math.max(Number((h as { bg_overlay?: string | number }).bg_overlay ?? 62), 0), 100) / 100
+  const bgImage = (h as { bg_image?: string }).bg_image
 
   const stats = [
     { label: s.founded_label, value: s.founded_value },
@@ -27,10 +29,19 @@ export default function Hero({ dict }: Props) {
 
   return (
     <section
-      className="min-h-screen flex flex-col pt-32 pb-0 px-6 md:px-12"
+      className="relative overflow-hidden min-h-screen flex flex-col pt-32 pb-0 px-6 md:px-12"
       style={{ backgroundColor: 'var(--bg)' }}
     >
-      <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center gap-8">
+      {bgImage && (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ backgroundColor: `rgba(245,242,238,${overlay})` }} />
+          {/* fade da imagem para a cor de fundo, terminando um pouco acima da barra de números */}
+          <div className="absolute bottom-0 left-0 right-0 h-72" style={{ background: 'linear-gradient(to bottom, rgba(245,242,238,0) 0%, rgba(245,242,238,1) 62%)' }} />
+        </>
+      )}
+      <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center gap-8">
         {/* Badge */}
         <motion.div {...fadeUp(0.1)}>
           <span
@@ -52,7 +63,7 @@ export default function Hero({ dict }: Props) {
         {/* Subtext */}
         <motion.p
           {...fadeUp(0.35)}
-          className="font-sans text-base md:text-lg text-[#6B6560] max-w-md leading-relaxed"
+          className="font-sans text-base md:text-lg text-[#3A3632] max-w-md leading-relaxed"
         >
           {h.subtext}
         </motion.p>
@@ -79,7 +90,7 @@ export default function Hero({ dict }: Props) {
       {/* Stats bar */}
       <motion.div
         {...fadeUp(0.7)}
-        className="max-w-7xl mx-auto w-full border-t border-[rgba(26,26,26,0.1)] mt-16"
+        className="relative z-10 max-w-7xl mx-auto w-full border-t border-[rgba(26,26,26,0.1)] mt-16"
       >
         <div className="grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, i) => (

@@ -22,7 +22,7 @@ export default function ProjectsExplorer({ dict, lang, projects }: Props) {
   const [sort, setSort] = useState<Sort>('name')
 
   const categories = useMemo(
-    () => Array.from(new Set(projects.map(p => p.category).filter(Boolean))) as string[],
+    () => Array.from(new Set(projects.flatMap(p => (p.categories && p.categories.length ? p.categories : (p.category ? [p.category] : []))))) as string[],
     [projects]
   )
   const years = useMemo(
@@ -32,7 +32,7 @@ export default function ProjectsExplorer({ dict, lang, projects }: Props) {
 
   const visible = useMemo(() => {
     let list = projects.filter(p =>
-      (category === '__all' || p.category === category) &&
+      (category === '__all' || (p.categories && p.categories.includes(category)) || p.category === category) &&
       (year === '__all' || p.year === year)
     )
     list = [...list].sort((a, b) => {
@@ -106,7 +106,7 @@ export default function ProjectsExplorer({ dict, lang, projects }: Props) {
                     <div>
                       <h3 className="font-playfair text-base text-[#1A1A1A] leading-snug mb-1">{pr.title}</h3>
                       <p className="font-sans text-xs text-[#6B6560] tracking-wide">
-                        {[pr.category, pr.location, pr.year].filter(Boolean).join(' · ')}
+                        {[(pr.categories && pr.categories.length ? pr.categories.join(', ') : pr.category), pr.location, pr.year].filter(Boolean).join(' · ')}
                       </p>
                     </div>
                     <ArrowRight size={16} className="text-[#6B6560] mt-1 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
