@@ -48,6 +48,7 @@ export const CONTENT_SCHEMA: SectionSchema[] = [
       { key: 'body1', label: 'Parágrafo 1', type: 'textarea' },
       { key: 'body2', label: 'Parágrafo 2', type: 'textarea' },
       { key: 'cta', label: 'Botão', type: 'text' },
+      { key: 'values_label', label: 'Valores — cabeçalho', type: 'text' },
       { key: 'value1_title', label: 'Valor 1 — título', type: 'text' },
       { key: 'value1_desc', label: 'Valor 1 — descrição', type: 'textarea' },
       { key: 'value2_title', label: 'Valor 2 — título', type: 'text' },

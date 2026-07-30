@@ -165,7 +165,7 @@ export default function ContentManager({ initial }: { initial: SiteContent[] }) 
                 <div className="max-w-[220px]"><Box n={N()} value={v('cta')} onChange={x => set('cta', x)} cls="text-xs tracking-[0.12em] uppercase text-[#1A1A1A]" /></div>
               </div>
               <div className="flex flex-col gap-6">
-                <p className="text-[11px] uppercase tracking-wider text-[#6B6560]">Os nossos valores</p>
+                <div className="max-w-xs"><Box n={N()} value={v('values_label')} onChange={x => set('values_label', x)} cls="text-xs tracking-[0.18em] uppercase text-[#6B6560]" /></div>
                 {['value1', 'value2', 'value3', 'value4', 'value5'].map(s => (
                   <div key={s} className="flex flex-col gap-2 border-t border-[rgba(26,26,26,0.12)] pt-4">
                     <Box n={N()} value={v(`${s}_title`)} onChange={x => set(`${s}_title`, x)} cls="font-playfair text-2xl text-[#1A1A1A]" />
