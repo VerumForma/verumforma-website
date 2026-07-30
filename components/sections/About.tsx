@@ -16,11 +16,13 @@ const fadeUp = (delay = 0) => ({
 export default function About({ dict }: Props) {
   const a = dict.about
 
-  const stats = [
-    { value: a.stat1_value, label: a.stat1_label },
-    { value: a.stat2_value, label: a.stat2_label },
-    { value: a.stat3_value, label: a.stat3_label },
-  ]
+  const values = [
+    { title: a.value1_title, desc: a.value1_desc },
+    { title: a.value2_title, desc: a.value2_desc },
+    { title: a.value3_title, desc: a.value3_desc },
+    { title: a.value4_title, desc: a.value4_desc },
+    { title: a.value5_title, desc: a.value5_desc },
+  ].filter(v => v.title || v.desc)
 
   return (
     <section id="sobre" className="py-24 px-6 md:px-12" style={{ backgroundColor: '#1A1A1A' }}>
@@ -52,16 +54,16 @@ export default function About({ dict }: Props) {
             </motion.a>
           </div>
 
-          {/* Right — stats */}
+          {/* Right — values */}
           <div className="flex flex-col">
-            {stats.map((stat, i) => (
+            {values.map((val, i) => (
               <motion.div
                 key={i}
-                {...fadeUp(0.1 + i * 0.1)}
-                className={`py-8 ${i > 0 ? 'border-t border-[rgba(255,255,255,0.08)]' : ''}`}
+                {...fadeUp(0.1 + i * 0.08)}
+                className={`py-6 ${i > 0 ? 'border-t border-[rgba(255,255,255,0.08)]' : ''}`}
               >
-                <p className="font-playfair text-5xl md:text-6xl text-white mb-2">{stat.value}</p>
-                <p className="font-sans text-sm text-[#6B6560] leading-relaxed max-w-xs">{stat.label}</p>
+                <p className="font-playfair text-2xl md:text-3xl text-white mb-1.5">{val.title}</p>
+                <p className="font-sans text-sm text-[#9E9994] leading-relaxed max-w-md">{val.desc}</p>
               </motion.div>
             ))}
           </div>

@@ -39,12 +39,16 @@
     "body1": "Desde a primeira reunião até à entrega final, acompanhamos cada fase com rigor e transparência. Trabalhamos com uma carteira limitada de projetos por ano — porque qualidade e atenção ao detalhe não são compatíveis com volume.",
     "body2": "A nossa equipa reúne décadas de experiência em construção comercial, residencial e industrial em Portugal.",
     "cta": "Conhecer a equipa",
-    "stat1_value": "250+",
-    "stat1_label": "Obras concluídas em Portugal, desde habitação de luxo a infraestrutura civil.",
-    "stat2_value": "27",
-    "stat2_label": "Anos de presença no setor, com reputação construída projeto a projeto.",
-    "stat3_value": "99%",
-    "stat3_label": "Das obras entregues no prazo acordado, sem surpresas para o cliente."
+    "value1_title": "Verdade",
+    "value1_desc": "Dizemos o que fazemos e fazemos o que dizemos. Sem letras pequenas, sem surpresas no fim da obra.",
+    "value2_title": "Rigor",
+    "value2_desc": "Cada fase é executada com precisão técnica. O detalhe não é um extra, é o trabalho.",
+    "value3_title": "Compromisso",
+    "value3_desc": "A palavra dada é um contrato. Entregamos na data acordada, obra após obra.",
+    "value4_title": "Transparência",
+    "value4_desc": "Orçamentos claros e comunicação constante. Sabe sempre em que ponto está a sua obra.",
+    "value5_title": "Proximidade",
+    "value5_desc": "Um único ponto de contacto do início ao fim. Fala connosco, não com um call center."
   },
   "services": {
     "label": "O que fazemos",

@@ -39,12 +39,16 @@
     "body1": "From the first meeting to final delivery, we accompany every phase with rigour and transparency. We work with a limited project portfolio per year — because quality and attention to detail are not compatible with volume.",
     "body2": "Our team brings decades of experience in commercial, residential and industrial construction across Portugal.",
     "cta": "Meet the team",
-    "stat1_value": "250+",
-    "stat1_label": "Projects completed across Portugal, from luxury housing to civil infrastructure.",
-    "stat2_value": "27",
-    "stat2_label": "Years in the sector, with a reputation built project by project.",
-    "stat3_value": "99%",
-    "stat3_label": "Of projects delivered on time, with no surprises for the client."
+    "value1_title": "Truth",
+    "value1_desc": "We say what we do and do what we say. No fine print, no surprises at the end of the job.",
+    "value2_title": "Rigour",
+    "value2_desc": "Every phase is built with technical precision. Detail isn't an extra, it's the work.",
+    "value3_title": "Commitment",
+    "value3_desc": "Our word is a contract. We deliver on the agreed date, project after project.",
+    "value4_title": "Transparency",
+    "value4_desc": "Clear budgets and constant communication. You always know where your project stands.",
+    "value5_title": "Closeness",
+    "value5_desc": "A single point of contact from start to finish. You talk to us, not a call center."
   },
   "services": {
     "label": "What we do",

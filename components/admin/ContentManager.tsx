@@ -164,11 +164,12 @@ export default function ContentManager({ initial }: { initial: SiteContent[] }) 
                 <Box n={N()} area value={v('body2')} onChange={x => set('body2', x)} cls="font-sans text-base text-[#6B6560] leading-relaxed" />
                 <div className="max-w-[220px]"><Box n={N()} value={v('cta')} onChange={x => set('cta', x)} cls="text-xs tracking-[0.12em] uppercase text-[#1A1A1A]" /></div>
               </div>
-              <div className="flex flex-col gap-8">
-                {['stat1', 'stat2', 'stat3'].map(s => (
-                  <div key={s} className="flex flex-col gap-2">
-                    <Box n={N()} value={v(`${s}_value`)} onChange={x => set(`${s}_value`, x)} cls="font-playfair text-4xl text-[#1A1A1A]" />
-                    <Box n={N()} area value={v(`${s}_label`)} onChange={x => set(`${s}_label`, x)} cls="font-sans text-sm text-[#6B6560] leading-relaxed" />
+              <div className="flex flex-col gap-6">
+                <p className="text-[11px] uppercase tracking-wider text-[#6B6560]">Os nossos valores</p>
+                {['value1', 'value2', 'value3', 'value4', 'value5'].map(s => (
+                  <div key={s} className="flex flex-col gap-2 border-t border-[rgba(26,26,26,0.12)] pt-4">
+                    <Box n={N()} value={v(`${s}_title`)} onChange={x => set(`${s}_title`, x)} cls="font-playfair text-2xl text-[#1A1A1A]" />
+                    <Box n={N()} area value={v(`${s}_desc`)} onChange={x => set(`${s}_desc`, x)} cls="font-sans text-sm text-[#6B6560] leading-relaxed" />
                   </div>
                 ))}
               </div>
