@@ -27,15 +27,20 @@ export default function About({ dict }: Props) {
   return (
     <section id="sobre" className="py-24 px-6 md:px-12" style={{ backgroundColor: '#1A1A1A' }}>
       <div className="max-w-7xl mx-auto">
-        {/* Label */}
-        <motion.p {...fadeUp(0)} className="text-xs tracking-[0.18em] uppercase font-sans text-[#6B6560] mb-12">
-          {a.label}
-        </motion.p>
+        {/* Labels — aligned above each column */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mb-12">
+          <motion.p {...fadeUp(0)} className="text-xs tracking-[0.18em] uppercase font-sans text-[#6B6560]">
+            {a.label}
+          </motion.p>
+          <motion.p {...fadeUp(0.05)} className="hidden lg:block text-xs tracking-[0.18em] uppercase font-sans text-[#6B6560]">
+            {a.values_label}
+          </motion.p>
+        </div>
 
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left — copy */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-8">
             <motion.h2 {...fadeUp(0.1)} className="font-playfair text-4xl md:text-5xl text-white leading-[1.1]">
               {a.headline}
             </motion.h2>
@@ -56,7 +61,7 @@ export default function About({ dict }: Props) {
 
           {/* Right — values */}
           <div className="flex flex-col">
-            <motion.p {...fadeUp(0)} className="text-xs tracking-[0.18em] uppercase font-sans text-[#6B6560] mb-8">
+            <motion.p {...fadeUp(0)} className="lg:hidden text-xs tracking-[0.18em] uppercase font-sans text-[#6B6560] mb-8">
               {a.values_label}
             </motion.p>
             {values.map((val, i) => (
