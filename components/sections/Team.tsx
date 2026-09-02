@@ -10,8 +10,9 @@ type Props = { dict: Dictionary; team?: TeamMember[] }
 
 export default function Team({ dict, team }: Props) {
   const t = dict.team
-  const hasData = team && team.length > 0
   const scroller = useRef<HTMLDivElement>(null)
+
+  if (!team || team.length === 0) return null
 
   function page(dir: -1 | 1) {
     const el = scroller.current
@@ -29,8 +30,7 @@ export default function Team({ dict, team }: Props) {
           <p className="font-sans text-sm text-[#6B6560] max-w-sm md:text-right">{t.subtext}</p>
         </div>
 
-        {hasData ? (
-          <div className="relative">
+        <div className="relative">
             {team!.length > 4 && (
               <div className="flex justify-end gap-2 mb-4">
                 <button onClick={() => page(-1)} aria-label="Anterior" className="w-9 h-9 flex items-center justify-center border border-[rgba(26,26,26,0.15)] hover:border-[#1A1A1A] transition-colors">
@@ -70,20 +70,6 @@ export default function Team({ dict, team }: Props) {
               ))}
             </div>
           </div>
-        ) : (
-          <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {[0, 1, 2, 3].map(i => (
-                <div key={i} className="flex flex-col gap-3">
-                  <div className="w-full aspect-[3/4]" style={{ backgroundColor: '#2A2A2A' }} />
-                  <p className="font-playfair text-base text-[#1A1A1A]">—</p>
-                  <p className="font-sans text-xs text-[#6B6560] tracking-wide">—</p>
-                </div>
-              ))}
-            </div>
-            <p className="font-sans text-xs text-[#6B6560] tracking-[0.12em] uppercase">{t.coming_soon}</p>
-          </>
-        )}
       </div>
     </section>
   )

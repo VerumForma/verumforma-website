@@ -8,10 +8,12 @@ type Props = { dict: Dictionary; testimonials?: TestimonialRow[] }
 
 export default function Testimonial({ dict, testimonials }: Props) {
   const t = dict.testimonial
-  const featured = testimonials && testimonials.length > 0 ? testimonials[0] : null
-  const quote = featured ? featured.quote : t.quote
-  const author = featured ? featured.author_name : t.author
-  const role = featured ? (featured.author_role ?? featured.project ?? '') : t.role
+  if (!testimonials || testimonials.length === 0) return null
+
+  const featured = testimonials[0]
+  const quote = featured.quote
+  const author = featured.author_name
+  const role = featured.author_role ?? featured.project ?? ''
 
   return (
     <section className="py-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
