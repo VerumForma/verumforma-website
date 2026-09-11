@@ -55,7 +55,7 @@ export default function Hero({ dict }: Props) {
         {/* Headline */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold text-[#1A1A1A] leading-[1.05] max-w-4xl"
+          className="font-playfair font-bold uppercase whitespace-pre-line text-[#1A1A1A] leading-[1.02] text-[clamp(1.75rem,6vw,4.75rem)]"
         >
           {h.headline}
         </motion.h1>
