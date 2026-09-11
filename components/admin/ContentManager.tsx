@@ -120,9 +120,10 @@ export default function ContentManager({ initial }: { initial: SiteContent[] }) 
         return (
           <div className="p-8 md:p-12" style={{ backgroundColor: 'var(--bg)' }}>
             <div className="mb-8 pb-6 border-b border-dashed border-[rgba(26,26,26,0.25)]">
-              <p className="text-[11px] uppercase tracking-wider text-[#6B6560] mb-2">Imagem de fundo (opcional)</p>
+              <p className="text-[11px] uppercase tracking-wider text-[#6B6560] mb-2">Imagem ou vídeo de fundo (opcional)</p>
               <div className="max-w-md">
-                <ImageUpload value={v('bg_image') || null} folder="hero" aspect="aspect-video" onChange={url => set('bg_image', url || '')} />
+                <ImageUpload value={v('bg_image') || null} folder="hero" aspect="aspect-video" accept="image/*,video/mp4,video/webm" onChange={url => set('bg_image', url || '')} />
+                <p className="text-[10px] text-[#6B6560] mt-1">Vídeo MP4 ou WebM: reproduz em loop, sem som. Mantenha o ficheiro leve (idealmente &lt; 10 MB).</p>
               </div>
               <div className="mt-4 max-w-xs">
                 <label className="block text-[11px] uppercase tracking-wider text-[#6B6560] mb-1">Filtro claro por cima: {v('bg_overlay') || '62'}%</label>

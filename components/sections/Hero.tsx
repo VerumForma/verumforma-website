@@ -14,6 +14,8 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as Easing },
 })
 
+const isVideoSrc = (src: string) => /\.(mp4|webm|ogg|mov|m4v)(\?|$)/i.test(src)
+
 export default function Hero({ dict }: Props) {
   const h = dict.hero
   const s = dict.stats
@@ -47,8 +49,21 @@ export default function Hero({ dict }: Props) {
     >
       {bgImage && (
         <>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          {isVideoSrc(bgImage) ? (
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              src={bgImage}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          )}
           <div className="absolute inset-0" style={{ backgroundColor: `rgba(245,242,238,${overlay})` }} />
           {/* fade da imagem para a cor de fundo, terminando um pouco acima da barra de números */}
           <div className="absolute bottom-0 left-0 right-0 h-72" style={{ background: 'linear-gradient(to bottom, rgba(245,242,238,0) 0%, rgba(245,242,238,1) 62%)' }} />

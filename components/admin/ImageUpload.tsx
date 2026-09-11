@@ -8,9 +8,14 @@ type Props = {
   onChange: (url: string | null) => void
   folder: string
   aspect?: string
+  // File types the picker accepts. Defaults to images only; pass e.g.
+  // "image/*,video/mp4,video/webm" to also allow video uploads.
+  accept?: string
 }
 
-export default function ImageUpload({ value, onChange, folder, aspect = 'aspect-[4/3]' }: Props) {
+const isVideoSrc = (src: string) => /\.(mp4|webm|ogg|mov|m4v)(\?|$)/i.test(src)
+
+export default function ImageUpload({ value, onChange, folder, aspect = 'aspect-[4/3]', accept = 'image/*' }: Props) {
   const supabase = createClient()
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
@@ -40,16 +45,20 @@ export default function ImageUpload({ value, onChange, folder, aspect = 'aspect-
     <div>
       <div className={`relative w-full ${aspect} bg-[#2A2A2A] overflow-hidden mb-2 flex items-center justify-center`}>
         {value ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={value} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          isVideoSrc(value) ? (
+            <video src={value} className="absolute inset-0 w-full h-full object-cover" autoPlay loop muted playsInline />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={value} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          )
         ) : (
-          <span className="text-xs text-[#6B6560]">sem imagem</span>
+          <span className="text-xs text-[#6B6560]">sem ficheiro</span>
         )}
       </div>
       <div className="flex items-center gap-3">
         <label className="text-xs uppercase tracking-wider text-[#1A1A1A] border border-[#1A1A1A] px-3 py-2 cursor-pointer hover:bg-[#1A1A1A] hover:text-white transition-colors">
-          {uploading ? 'A carregar…' : value ? 'Substituir' : 'Carregar imagem'}
-          <input type="file" accept="image/*" onChange={handleFile} className="hidden" disabled={uploading} />
+          {uploading ? 'A carregar…' : value ? 'Substituir' : (accept.includes('video') ? 'Carregar ficheiro' : 'Carregar imagem')}
+          <input type="file" accept={accept} onChange={handleFile} className="hidden" disabled={uploading} />
         </label>
         {value && (
           <button
