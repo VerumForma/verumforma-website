@@ -1,13 +1,13 @@
 import { getDictionary } from '@/lib/getDictionary'
 import type { Locale } from '@/middleware'
-import Navbar from '@/components/layout/Navbar'
+import SiteNav from '@/components/layout/SiteNav'
 import Footer from '@/components/layout/Footer'
 
 export default async function PrivacidadePage({ params }: { params: { lang: Locale } }) {
   const dict = await getDictionary(params.lang)
   return (
     <>
-      <Navbar dict={dict} lang={params.lang} />
+      <SiteNav dict={dict} lang={params.lang} />
       <main className="min-h-screen pt-32 pb-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-3xl mx-auto">
           <h1 className="font-playfair text-4xl md:text-5xl text-[#1A1A1A] mb-12">Política de Privacidade</h1>

@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react'
 import { getDictionary } from '@/lib/getDictionary'
 import { getProjectById } from '@/lib/data'
 import type { Locale } from '@/middleware'
-import Navbar from '@/components/layout/Navbar'
+import SiteNav from '@/components/layout/SiteNav'
 import Footer from '@/components/layout/Footer'
 
 type Params = { params: { lang: Locale; id: string } }
@@ -32,7 +32,7 @@ export default async function ProjectDetailPage({ params }: Params) {
 
   return (
     <>
-      <Navbar dict={dict} lang={params.lang} />
+      <SiteNav dict={dict} lang={params.lang} />
       <article className="pt-28 pb-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-5xl mx-auto">
           <Link href={`/${params.lang}/projetos`} className="inline-flex items-center gap-2 text-xs tracking-[0.12em] uppercase font-sans text-[#6B6560] hover:text-[#1A1A1A] transition-colors mb-10">

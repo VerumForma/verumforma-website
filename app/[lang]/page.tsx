@@ -2,7 +2,7 @@ import { getDictionary } from '@/lib/getDictionary'
 import { mergeDictionaryWithContent } from '@/lib/content'
 import { getPublishedProjects, getPublishedTeam, getPublishedTestimonials, getPublishedOpenings, getPublishedSocial } from '@/lib/data'
 import type { Locale } from '@/middleware'
-import Navbar from '@/components/layout/Navbar'
+import SiteNav from '@/components/layout/SiteNav'
 import Hero from '@/components/sections/Hero'
 import Projects from '@/components/sections/Projects'
 import About from '@/components/sections/About'
@@ -27,7 +27,7 @@ export default async function HomePage({ params }: { params: { lang: Locale } })
   const dict = await mergeDictionaryWithContent(rawDict, params.lang)
   return (
     <>
-      <Navbar dict={dict} lang={params.lang} />
+      <SiteNav dict={dict} lang={params.lang} />
       <Hero dict={dict} />
       <Projects dict={dict} lang={params.lang} projects={projects} />
       <About dict={dict} />

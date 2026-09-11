@@ -10,18 +10,24 @@ import type { Dictionary } from '@/lib/getDictionary'
 type Props = {
   dict: Dictionary
   lang: string
+  showTeam?: boolean
+  showOpportunities?: boolean
 }
 
-const navLinks = (dict: Dictionary['nav'], lang: string) => [
+const navLinks = (
+  dict: Dictionary['nav'],
+  lang: string,
+  opts: { showTeam: boolean; showOpportunities: boolean }
+) => [
   { href: `/${lang}#projetos`, label: dict.projects },
   { href: `/${lang}#sobre`, label: dict.about },
   { href: `/${lang}#servicos`, label: dict.services },
   { href: `/${lang}#processo`, label: dict.process },
-  { href: `/${lang}#equipa`, label: dict.team },
-  { href: `/${lang}/oportunidades`, label: dict.opportunities },
+  ...(opts.showTeam ? [{ href: `/${lang}#equipa`, label: dict.team }] : []),
+  ...(opts.showOpportunities ? [{ href: `/${lang}/oportunidades`, label: dict.opportunities }] : []),
 ]
 
-export default function Navbar({ dict, lang }: Props) {
+export default function Navbar({ dict, lang, showTeam = true, showOpportunities = true }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -60,7 +66,7 @@ export default function Navbar({ dict, lang }: Props) {
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks(dict.nav, lang).map(link => (
+          {navLinks(dict.nav, lang, { showTeam, showOpportunities }).map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -115,7 +121,7 @@ export default function Navbar({ dict, lang }: Props) {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-16 left-0 right-0 bg-[#F5F2EE] border-t border-[rgba(26,26,26,0.08)] px-6 py-8 flex flex-col gap-6"
         >
-          {navLinks(dict.nav, lang).map(link => (
+          {navLinks(dict.nav, lang, { showTeam, showOpportunities }).map(link => (
             <a
               key={link.href}
               href={link.href}

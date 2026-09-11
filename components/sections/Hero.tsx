@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import type { Easing } from 'framer-motion'
 import type { Dictionary } from '@/lib/getDictionary'
@@ -14,11 +15,50 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as Easing },
 })
 
+// Types `text` out one character at a time on mount. Honours reduced-motion
+// (shows the full text instantly) and returns how many characters to show.
+function useTypewriter(text: string, speed = 50, startDelay = 600) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setCount(text.length)
+      return
+    }
+    setCount(0)
+    let i = 0
+    let interval: ReturnType<typeof setInterval> | undefined
+    const start = setTimeout(() => {
+      interval = setInterval(() => {
+        i += 1
+        setCount(i)
+        if (i >= text.length && interval) clearInterval(interval)
+      }, speed)
+    }, startDelay)
+    return () => {
+      clearTimeout(start)
+      if (interval) clearInterval(interval)
+    }
+  }, [text, speed, startDelay])
+  return count
+}
+
 export default function Hero({ dict }: Props) {
   const h = dict.hero
   const s = dict.stats
   const overlay = Math.min(Math.max(Number((h as { bg_overlay?: string | number }).bg_overlay ?? 62), 0), 100) / 100
   const bgImage = (h as { bg_image?: string }).bg_image
+
+  // Headline typewriter — the copy carries a \n so 'com verdade' is always
+  // its own line; each line is rendered as a block, so the break never depends
+  // on wrapping or white-space handling.
+  const headline = h.headline
+  const typed = useTypewriter(headline)
+  const shown = headline.slice(0, typed)
+  const done = typed >= headline.length
+  const shownLines = shown.split('\n')
 
   const stats = [
     { label: s.founded_label, value: s.founded_value },
@@ -52,12 +92,28 @@ export default function Hero({ dict }: Props) {
           </span>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline — types out on load; caret blinks while writing, then disappears */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="font-playfair font-bold uppercase whitespace-pre-line text-[#1A1A1A] leading-[1.02] text-[clamp(1.75rem,6vw,4.75rem)]"
+          className="relative font-playfair font-bold text-[#1A1A1A] leading-[1.03] text-[clamp(1.75rem,7vw,6rem)]"
         >
-          {h.headline}
+          {/* Invisible full copy: reserves the two-line box (no reflow) and keeps the text for SEO / screen readers */}
+          <span className="block opacity-0 select-none">
+            {headline.split('\n').map((line, i) => (
+              <span key={i} className="block">{line}</span>
+            ))}
+          </span>
+          {/* Animated copy overlaid on top */}
+          <span className="absolute inset-0" aria-hidden="true">
+            {shownLines.map((line, i) => (
+              <span key={i} className="block">
+                {line}
+                {!done && i === shownLines.length - 1 && (
+                  <span className="tw-caret font-normal">|</span>
+                )}
+              </span>
+            ))}
+          </span>
         </motion.h1>
 
         {/* Subtext */}

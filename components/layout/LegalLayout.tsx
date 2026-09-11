@@ -1,5 +1,5 @@
 import type { Dictionary } from '@/lib/getDictionary'
-import Navbar from '@/components/layout/Navbar'
+import SiteNav from '@/components/layout/SiteNav'
 import Footer from '@/components/layout/Footer'
 
 export type LegalSection = { heading: string; paragraphs: string[] }
@@ -16,7 +16,7 @@ type Props = {
 export default function LegalLayout({ dict, lang, title, updated, intro, sections }: Props) {
   return (
     <>
-      <Navbar dict={dict} lang={lang} />
+      <SiteNav dict={dict} lang={lang} />
       <main className="min-h-screen pt-32 pb-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
         <div className="max-w-3xl mx-auto">
           <h1 className="font-playfair text-4xl md:text-5xl text-[#1A1A1A] mb-3">{title}</h1>

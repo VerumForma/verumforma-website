@@ -7,7 +7,7 @@ import { getOpeningById } from '@/lib/data'
 import { specLines, type RequirementSpecs } from '@/lib/requirements'
 import { formatSalary } from '@/lib/openingOptions'
 import type { Locale } from '@/middleware'
-import Navbar from '@/components/layout/Navbar'
+import SiteNav from '@/components/layout/SiteNav'
 import Footer from '@/components/layout/Footer'
 import ApplicationForm from '@/components/sections/ApplicationForm'
 
@@ -57,7 +57,7 @@ export default async function OpeningDetailPage({ params }: Params) {
 
   return (
     <>
-      <Navbar dict={dict} lang={params.lang} />
+      <SiteNav dict={dict} lang={params.lang} />
       <article className="pt-28 pb-24 px-6 md:px-12" style={{ backgroundColor: 'var(--bg)' }}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div className="max-w-3xl mx-auto">
