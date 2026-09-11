@@ -1,22 +1,16 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import { Playfair_Display } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import '@/app/globals.css'
 import type { Locale } from '@/middleware'
 import CookieBanner from '@/components/ui/CookieBanner'
 
-// Geist is bundled by create-next-app as a local font; it is not on
-// Google Fonts, so we use next/font/local with the pre-installed woff.
-const geist = localFont({
-  src: '../fonts/GeistVF.woff',
-  variable: '--font-geist',
-  weight: '100 900',
-})
-
-const playfair = Playfair_Display({
+// Montserrat matches the VerumForma wordmark (Montserrat Light).
+// Used site-wide for both body and display type.
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-playfair',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-montserrat',
+  display: 'swap',
 })
 
 export async function generateMetadata({ params }: { params: { lang: Locale } }): Promise<Metadata> {
@@ -59,7 +53,7 @@ export default function LangLayout({
   params: { lang: Locale }
 }) {
   return (
-    <html lang={params.lang} className={`${geist.variable} ${playfair.variable}`}>
+    <html lang={params.lang} className={montserrat.variable}>
       <body className="font-sans antialiased">
         {children}
         <CookieBanner lang={params.lang} />

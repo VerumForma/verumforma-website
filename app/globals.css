@@ -19,3 +19,13 @@ html {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--dark); }
+
+/* Display type (headings using .font-playfair) defaults to Montserrat Light
+   to echo the wordmark. Explicit weight utilities (font-medium, font-bold,
+   font-light, etc.) still override this because they sit in the later
+   'utilities' layer. */
+@layer components {
+  .font-playfair {
+    font-weight: 300;
+  }
+}

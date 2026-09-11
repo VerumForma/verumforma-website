@@ -13,8 +13,10 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        sans: ['var(--font-geist)', 'system-ui', 'sans-serif'],
-        playfair: ['var(--font-playfair)', 'Georgia', 'serif'],
+        // Both families now resolve to Montserrat (matches the wordmark).
+        // 'playfair' key kept so existing className usages keep working.
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        playfair: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
       },
     },
   },
